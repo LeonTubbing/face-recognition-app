@@ -1,0 +1,4 @@
+<h1>Matching Images</h1>
+{% for match in matches %}
+    <img src="{{ url_for('static', filename='image_library/' + match) }}" alt="{{ match }}">
+{% endfor %}
