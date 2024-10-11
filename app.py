@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import face_recognition
+import os  # Add this import to access environment variables
 
 app = Flask(__name__)
 
@@ -34,4 +35,6 @@ def search_in_library(uploaded_encoding, folder_path):
     return matches
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use the PORT assigned by Heroku or default to 5000 for local development
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
